@@ -4,7 +4,7 @@ public:
         double ans = 1.0;
         long nn = n; 
         if (nn < 0) {
-            nn = -nn;
+            nn = -nn ;
         }
 
         while (nn > 0) {
