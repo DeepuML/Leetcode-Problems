@@ -11,26 +11,21 @@
  */
 class Solution {
 public:
-    vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> result;
-        // Base case: if the node is empty, return the empty vector
-        if (root == nullptr) {
-            return result;
+    void solve(TreeNode* root , vector<int> &ans){
+        if(root==NULL){
+            return ;
         }
-        
-        // Preorder: Root -> Left -> Right
-        
-        // 1. Visit the Root
-        result.push_back(root->val);
-        
-        // 2. Traverse the Left subtree
-        vector<int> leftSubtree = preorderTraversal(root->left);
-        result.insert(result.end(), leftSubtree.begin(), leftSubtree.end());
-        
-        // 3. Traverse the Right subtree
-        vector<int> rightSubtree = preorderTraversal(root->right);
-        result.insert(result.end(), rightSubtree.begin(), rightSubtree.end());
-        
-        return result;
+
+        ans.push_back(root->val);
+        solve(root->left,ans);
+        solve(root->right,ans);
+
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> arr; 
+        solve(root, arr);
+        return arr ;
+    
+
     }
 };
